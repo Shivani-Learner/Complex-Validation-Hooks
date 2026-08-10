@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* =========================================
+     CORE COLORS
+  ========================================= */
+
+  --black: #111111;
+  --gray-800: #252525;
+  --gray-700: #3d3d3d;
+  --gray-600: #5c5c5c;
+  --gray-500: #777777;
+  --gray-400: #969696;
+  --gray-300: #bdbdbd;
+  --gray-200: #deddd9;
+  --gray-100: #efeee9;
+  --white: #f8f7f3;
+  --gold: #b89b62;
+
+  /* =========================================
+     SURFACES
+  ========================================= */
+
+  --surface: rgba(248, 247, 243, 0.72);
+  --surface-solid: #f8f7f3;
+  --border: rgba(17, 17, 17, 0.1);
+
+  /* =========================================
+     TYPOGRAPHY
+  ========================================= */
+
+  font-family:
+    "Manrope",
+    Arial,
+    sans-serif;
+
+  color: var(--black);
+
+  background: var(--gray-100);
+
+  font-synthesis: none;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   HTML
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(255, 255, 255, 0.95),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(255, 255, 255, 0.75),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 0, 0, 0.035),
+      transparent 38%
+    ),
+    var(--gray-100);
+}
+
+
+/* =========================================
+   TEXT SELECTION
+========================================= */
+
+::selection {
+  background: var(--black);
+
+  color: var(--white);
+}
+
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+/* =========================================
+   MEDIA
+========================================= */
+
+img,
+svg {
+  display: block;
+
+  max-width: 100%;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+
+/* =========================================
+   ACCESSIBILITY FOCUS
+========================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.18);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}

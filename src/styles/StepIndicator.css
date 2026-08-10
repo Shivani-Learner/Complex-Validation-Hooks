@@ -1,0 +1,480 @@
+/* =========================================
+   STEP INDICATOR
+========================================= */
+
+.step-indicator {
+  width: 100%;
+  max-width: 920px;
+
+  margin: 0 auto 26px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.step-indicator-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.step-indicator-label {
+  color: var(--gray-400);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+}
+
+.step-indicator-count {
+  color: var(--gray-400);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   STEPS CONTAINER
+========================================= */
+
+.steps {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding: 15px 18px;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.09);
+
+  border-radius: 16px;
+
+  background:
+    rgba(248, 247, 243, 0.76);
+
+  box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.045),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.85);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(115%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(115%);
+}
+
+
+/* =========================================
+   STEP WRAPPER
+========================================= */
+
+.step-wrapper {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   STEP
+========================================= */
+
+.step {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   STEP NUMBER
+========================================= */
+
+.step-number {
+  width: 31px;
+
+  height: 31px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.1);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  color: var(--gray-400);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.9);
+
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+
+/* =========================================
+   STEP CONTENT
+========================================= */
+
+.step-content {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.step-content strong {
+  color: var(--gray-400);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 220ms ease;
+}
+
+.step-content span {
+  color: var(--gray-400);
+
+  font-size: 7px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 220ms ease;
+}
+
+
+/* =========================================
+   ACTIVE STEP
+========================================= */
+
+.step.active .step-number {
+  border-color: var(--black);
+
+  background:
+    linear-gradient(
+      145deg,
+      #1c1c1c,
+      #080808
+    );
+
+  color: var(--white);
+
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 0, 0, 0.16),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+}
+
+.step.active .step-content strong {
+  color: var(--black);
+}
+
+.step.active .step-content span {
+  color: var(--gray-500);
+}
+
+
+/* =========================================
+   COMPLETED STEP
+========================================= */
+
+.step.completed .step-number {
+  border-color: var(--black);
+
+  background:
+    var(--black);
+
+  color: var(--white);
+
+  box-shadow:
+    0 5px 14px
+    rgba(0, 0, 0, 0.1);
+}
+
+.step.completed .step-content strong {
+  color: var(--gray-700);
+}
+
+.step.completed .step-content span {
+  color: var(--gray-500);
+}
+
+
+/* =========================================
+   CONNECTOR
+========================================= */
+
+.step-connector {
+  flex: 1;
+
+  height: 1px;
+
+  min-width: 30px;
+
+  margin:
+    0 18px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    rgba(17, 17, 17, 0.09);
+
+  transition:
+    background 300ms ease;
+}
+
+
+/* Completed connector */
+
+.step-connector.completed {
+  background:
+    var(--black);
+}
+
+
+/* Subtle highlight */
+
+.step-connector.completed::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform:
+    translateX(-100%);
+
+  animation:
+    connector-shine
+    900ms
+    ease-out
+    forwards;
+}
+
+@keyframes connector-shine {
+  to {
+    transform:
+      translateX(100%);
+  }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.step[aria-current="step"] {
+  position: relative;
+}
+
+.step[aria-current="step"]::before {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+
+  height: 5px;
+
+  left: 13px;
+
+  bottom: -13px;
+
+  border-radius: 50%;
+
+  background:
+    var(--black);
+
+  opacity: 0.25;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+  .steps {
+    padding:
+      13px 14px;
+  }
+
+  .step-content span {
+    display: none;
+  }
+
+  .step-connector {
+    margin:
+      0 12px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+  .step-indicator {
+    margin-bottom: 19px;
+  }
+
+  .steps {
+    padding:
+      12px 10px;
+
+    border-radius: 14px;
+  }
+
+  .step {
+    gap: 7px;
+  }
+
+  .step-number {
+    width: 28px;
+
+    height: 28px;
+
+    font-size: 6px;
+  }
+
+  .step-content strong {
+    font-size: 8px;
+  }
+
+  .step-connector {
+    min-width: 15px;
+
+    margin:
+      0 7px;
+  }
+
+  .step[aria-current="step"]::before {
+    display: none;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .step-content {
+    display: none;
+  }
+
+  .step {
+    justify-content: center;
+  }
+
+  .step-wrapper {
+    justify-content: center;
+  }
+
+  .step-connector {
+    min-width: 20px;
+
+    margin:
+      0 5px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .step-number,
+  .step-content strong,
+  .step-content span,
+  .step-connector {
+    transition: none;
+  }
+
+  .step-connector.completed::after {
+    animation: none;
+  }
+}

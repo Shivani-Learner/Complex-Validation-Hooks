@@ -1,0 +1,432 @@
+/* =========================================
+   FORM FIELD
+========================================= */
+
+.form-field {
+  width: 100%;
+
+  position: relative;
+}
+
+
+/* =========================================
+   FIELD HEADER
+========================================= */
+
+.field-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 9px;
+}
+
+.field-header label {
+  color: var(--gray-700);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.01em;
+}
+
+.required-mark {
+  margin-left: 4px;
+
+  color: var(--black);
+
+  font-size: 10px;
+}
+
+.character-count {
+  color: var(--gray-400);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+}
+
+
+/* =========================================
+   INPUT BASE
+========================================= */
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.1);
+
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  color: var(--black);
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  outline: none;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.8);
+
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+
+/* =========================================
+   INPUT + SELECT
+========================================= */
+
+.form-field input,
+.form-field select {
+  height: 49px;
+
+  padding:
+    0 15px;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.form-field textarea {
+  min-height: 120px;
+
+  padding:
+    14px 15px;
+
+  resize: vertical;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color:
+    rgba(107, 107, 107, 0.62);
+
+  opacity: 1;
+
+  transition:
+    opacity 180ms ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+  border-color:
+    rgba(17, 17, 17, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color:
+    rgba(17, 17, 17, 0.65);
+
+  background:
+    rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(17, 17, 17, 0.045),
+
+    0 8px 24px
+    rgba(0, 0, 0, 0.045);
+}
+
+.form-field input:focus::placeholder,
+.form-field textarea:focus::placeholder {
+  opacity: 0.35;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+
+  -webkit-appearance: none;
+
+  padding-right: 42px;
+
+  cursor: pointer;
+}
+
+.select-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  right: 15px;
+
+  transform:
+    translateY(-50%);
+
+  color:
+    var(--gray-500);
+
+  font-size: 12px;
+
+  pointer-events: none;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.select-wrapper:focus-within .select-arrow {
+  color:
+    var(--black);
+
+  transform:
+    translateY(-50%)
+    rotate(180deg);
+}
+
+
+/* =========================================
+   DATE INPUT
+========================================= */
+
+.form-field input[type="date"] {
+  color-scheme: light;
+
+  cursor: pointer;
+}
+
+.form-field input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+
+  cursor: pointer;
+
+  transition:
+    opacity 180ms ease;
+}
+
+.form-field input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.form-field input[type="date"]:focus::-webkit-calendar-picker-indicator {
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   ERROR STATE
+========================================= */
+
+.form-field.has-error input,
+.form-field.has-error select,
+.form-field.has-error textarea {
+  border-color:
+    rgba(17, 17, 17, 0.55);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(17, 17, 17, 0.035);
+}
+
+.form-field.has-error input:focus,
+.form-field.has-error select:focus,
+.form-field.has-error textarea:focus {
+  border-color:
+    var(--black);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(17, 17, 17, 0.075),
+
+    0 8px 24px
+    rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.field-error {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 7px;
+
+  margin-top: 8px;
+
+  color:
+    var(--gray-700);
+
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+.error-icon {
+  width: 13px;
+
+  height: 13px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--black);
+
+  color:
+    var(--white);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   DISABLED
+========================================= */
+
+.form-field input:disabled,
+.form-field select:disabled,
+.form-field textarea:disabled {
+  cursor:
+    not-allowed;
+
+  background:
+    rgba(230, 229, 225, 0.55);
+
+  color:
+    var(--gray-400);
+
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   AUTOFILL
+========================================= */
+
+.form-field input:-webkit-autofill,
+.form-field input:-webkit-autofill:hover,
+.form-field input:-webkit-autofill:focus {
+  -webkit-text-fill-color:
+    var(--black);
+
+  -webkit-box-shadow:
+    0 0 0 1000px
+    rgba(255, 255, 255, 0.9)
+    inset;
+
+  transition:
+    background-color 9999s ease-out;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .form-field input,
+  .form-field select {
+    height: 47px;
+  }
+
+  .form-field textarea {
+    min-height: 105px;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    border-radius: 10px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .form-field input,
+  .form-field select {
+    height: 45px;
+
+    padding:
+      0 13px;
+  }
+
+  .form-field textarea {
+    padding:
+      13px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .select-arrow,
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    transition: none;
+  }
+}
