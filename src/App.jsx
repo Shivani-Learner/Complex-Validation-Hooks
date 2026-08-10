@@ -12,7 +12,7 @@ import Success from "./components/Success";
 import { sanitizeFormData } from "./utils/sanitize";
 import { trackInteraction } from "./utils/analytics";
 
-import "./App.css";
+import "./app.css";
 
 const INITIAL_FORM_DATA = {
   fullName: "",
