@@ -1,0 +1,481 @@
+
+/* =========================================
+   PREMIUM NAVBAR
+========================================= */
+
+.navbar {
+  position: relative;
+  width: 100%;
+
+  background: rgba(250, 247, 241, 0.72);
+
+  border-bottom: 1px solid rgba(60, 54, 45, 0.09);
+
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+
+  z-index: 100;
+
+  box-shadow:
+    0 8px 30px rgba(42, 35, 25, 0.025);
+}
+
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+  position: relative;
+
+  width: min(1180px, calc(100% - 40px));
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 11px;
+
+  color: var(--black);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.78;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BRAND MARK
+========================================= */
+
+.brand-mark {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #25231f,
+      #11100e
+    );
+
+  color: #f9f5ec;
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  box-shadow:
+    0 8px 22px rgba(30, 25, 18, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  overflow: hidden;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.brand-mark::before {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  top: -12px;
+  right: -8px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(210, 181, 126, 0.55),
+      transparent 70%
+    );
+}
+
+.navbar-brand:hover .brand-mark {
+  transform: rotate(-4deg) scale(1.04);
+
+  box-shadow:
+    0 12px 28px rgba(30, 25, 18, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   BRAND NAME
+========================================= */
+
+.brand-name {
+  font-size: 13px;
+
+  color: var(--black);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-links {
+  position: absolute;
+
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 34px;
+
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  position: relative;
+
+  padding: 7px 0;
+
+  color: var(--gray-500);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.01em;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links a::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -3px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    translateY(4px)
+    scale(0.5);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -5px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 220ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--black);
+
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::before {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =========================================
+   SYSTEM STATUS
+========================================= */
+
+.nav-status {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 7px 11px;
+
+  border: 1px solid rgba(60, 54, 45, 0.08);
+
+  border-radius: 100px;
+
+  background:
+    rgba(255, 255, 255, 0.46);
+
+  color: var(--gray-500);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.04em;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.nav-status:hover {
+  border-color: rgba(184, 155, 98, 0.28);
+
+  background:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================
+   STATUS DOT
+========================================= */
+
+.status-dot {
+  position: relative;
+
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 0 4px rgba(184, 155, 98, 0.10);
+
+  animation:
+    status-pulse 2.4s ease-in-out infinite;
+}
+
+.status-dot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -3px;
+
+  border: 1px solid rgba(184, 155, 98, 0.25);
+
+  border-radius: 50%;
+
+  animation:
+    status-ring 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes status-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.navbar-brand:focus-visible,
+.nav-links a:focus-visible {
+  outline:
+    2px solid var(--gold);
+
+  outline-offset: 5px;
+
+  border-radius: 5px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .navbar-container {
+    width: calc(100% - 30px);
+
+    min-height: 72px;
+  }
+
+  .nav-links {
+    gap: 22px;
+  }
+
+  .nav-status {
+    padding: 6px 9px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .navbar-container {
+    min-height: 68px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-status span:last-child {
+    display: none;
+  }
+
+  .nav-status {
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .navbar-container {
+    width: calc(100% - 22px);
+  }
+
+  .brand-name {
+    font-size: 12px;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-brand,
+  .brand-mark,
+  .nav-links a,
+  .nav-links a::before,
+  .nav-links a::after,
+  .nav-status {
+    transition: none;
+  }
+
+  .status-dot,
+  .status-dot::after {
+    animation: none;
+  }
+}

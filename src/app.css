@@ -1,0 +1,209 @@
+/* =========================================
+   APP SHELL
+========================================= */
+
+.app {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  /* Premium editorial grid */
+  background:
+    linear-gradient(
+      rgba(17, 17, 17, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 17, 17, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 74px 74px;
+}
+
+
+/* =========================================
+   SOFT LIGHTING
+========================================= */
+
+.app::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(255, 255, 255, 0.95),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 82% 30%,
+      rgba(255, 255, 255, 0.8),
+      transparent 28%
+    );
+}
+
+
+/* =========================================
+   FLOATING ATMOSPHERE
+========================================= */
+
+.app::after {
+  content: "";
+
+  position: fixed;
+
+  width: 650px;
+  height: 650px;
+
+  top: 8%;
+  right: -280px;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.055),
+      transparent 68%
+    );
+
+  filter: blur(30px);
+
+  animation:
+    background-float 14s ease-in-out infinite;
+}
+
+
+/* =========================================
+   FLOAT ANIMATION
+========================================= */
+
+@keyframes background-float {
+  0%,
+  100% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -55px,
+        35px,
+        0
+      );
+  }
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.main-container {
+  width: min(
+    1180px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    40px 0
+    90px;
+}
+
+
+/* =========================================
+   STEP INDICATOR
+========================================= */
+
+.main-container > .step-indicator {
+  margin-top: 18px;
+}
+
+
+/* =========================================
+   SECTION SCROLL OFFSET
+========================================= */
+
+section {
+  scroll-margin-top: 100px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .main-container {
+    width: calc(100% - 30px);
+
+    padding-top: 30px;
+  }
+
+  .app {
+    background-size: 55px 55px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .main-container {
+    width: calc(100% - 24px);
+
+    padding:
+      25px 0
+      60px;
+  }
+
+  .app {
+    background-size: 45px 45px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .main-container {
+    width: calc(100% - 20px);
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .app::after {
+    animation: none;
+  }
+}

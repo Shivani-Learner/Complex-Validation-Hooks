@@ -1,0 +1,603 @@
+/* =========================================
+   LOADING STATE
+========================================= */
+
+.loading-state {
+  width: 100%;
+  max-width: 920px;
+
+  min-height: 460px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+
+/* =========================================
+   LOADING CARD
+========================================= */
+
+.loading-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 640px;
+
+  padding: 58px 48px 42px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.08);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(241, 240, 235, 0.72)
+    );
+
+  box-shadow:
+    0 35px 90px
+    rgba(0, 0, 0, 0.075),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.95);
+
+  backdrop-filter:
+    blur(24px)
+    saturate(115%);
+
+  -webkit-backdrop-filter:
+    blur(24px)
+    saturate(115%);
+}
+
+
+/* =========================================
+   AMBIENT LIGHT
+========================================= */
+
+.loading-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  top: -290px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+.loading-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -90px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.035),
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   VISUAL
+========================================= */
+
+.loading-visual {
+  position: relative;
+
+  width: 155px;
+  height: 155px;
+
+  margin: 0 auto 34px;
+
+  display: grid;
+  place-items: center;
+}
+
+
+/* =========================================
+   OUTER GLOW
+========================================= */
+
+.loading-visual::before {
+  content: "";
+
+  position: absolute;
+
+  width: 115px;
+  height: 115px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.07),
+      transparent 68%
+    );
+
+  filter: blur(10px);
+
+  animation:
+    loading-glow 2.2s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================
+   RINGS
+========================================= */
+
+.loading-ring {
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+
+/* INNER RING */
+
+.loading-ring-one {
+  width: 94px;
+  height: 94px;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.12);
+
+  border-top-color:
+    var(--black);
+
+  border-right-color:
+    rgba(17, 17, 17, 0.45);
+
+  animation:
+    loading-spin
+    1.7s
+    linear
+    infinite;
+}
+
+
+/* OUTER RING */
+
+.loading-ring-two {
+  width: 142px;
+  height: 142px;
+
+  border:
+    1px dashed
+    rgba(17, 17, 17, 0.16);
+
+  animation:
+    loading-spin-reverse
+    5s
+    linear
+    infinite;
+}
+
+
+/* =========================================
+   CORE
+========================================= */
+
+.loading-core {
+  position: relative;
+
+  z-index: 3;
+
+  width: 64px;
+  height: 64px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #202020,
+      #070707
+    );
+
+  color:
+    var(--white);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.03em;
+
+  box-shadow:
+    0 18px 38px
+    rgba(0, 0, 0, 0.2),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.09);
+
+  animation:
+    loading-breathe
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+.loading-core::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.loading-core::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -8px;
+
+  border:
+    1px solid
+    rgba(17, 17, 17, 0.07);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes loading-spin {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes loading-spin-reverse {
+  from {
+    transform:
+      rotate(360deg);
+  }
+
+  to {
+    transform:
+      rotate(0deg);
+  }
+}
+
+@keyframes loading-breathe {
+  0%,
+  100% {
+    transform:
+      scale(0.96);
+  }
+
+  50% {
+    transform:
+      scale(1.045);
+  }
+}
+
+@keyframes loading-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      scale(0.9);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      scale(1.08);
+  }
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.loading-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.loading-eyebrow {
+  color:
+    var(--gray-400);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+}
+
+.loading-content h2 {
+  margin-top: 13px;
+
+  color:
+    var(--black);
+
+  font-size:
+    clamp(
+      29px,
+      4vw,
+      42px
+    );
+
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing:
+    -0.06em;
+}
+
+.loading-content h2 span {
+  display: block;
+
+  margin-top: 5px;
+
+  color:
+    var(--gray-400);
+
+  font-weight: 500;
+}
+
+.loading-content p {
+  max-width: 440px;
+
+  margin:
+    16px auto 0;
+
+  color:
+    var(--gray-500);
+
+  font-size: 10px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.loading-progress {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 420px;
+
+  margin:
+    32px auto 0;
+}
+
+.loading-progress-track {
+  position: relative;
+
+  width: 100%;
+
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 100px;
+
+  background:
+    rgba(17, 17, 17, 0.08);
+}
+
+.loading-progress-bar {
+  width: 32%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--black),
+      transparent
+    );
+
+  animation:
+    loading-progress
+    1.45s
+    ease-in-out
+    infinite;
+}
+
+@keyframes loading-progress {
+  0% {
+    transform:
+      translateX(-130%);
+  }
+
+  100% {
+    transform:
+      translateX(420%);
+  }
+}
+
+
+/* =========================================
+   PROGRESS INFO
+========================================= */
+
+.loading-progress-info {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  color:
+    var(--gray-400);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 6px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .loading-state {
+    min-height: 410px;
+
+    padding: 10px;
+  }
+
+  .loading-card {
+    padding:
+      43px 24px 31px;
+
+    border-radius: 19px;
+  }
+
+  .loading-visual {
+    width: 145px;
+    height: 145px;
+
+    margin-bottom: 28px;
+  }
+
+  .loading-content h2 {
+    font-size: 31px;
+  }
+
+  .loading-content p {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .loading-card {
+    padding:
+      36px 18px 27px;
+  }
+
+  .loading-visual {
+    transform:
+      scale(0.9);
+
+    margin-bottom: 20px;
+  }
+
+  .loading-content h2 {
+    font-size: 28px;
+  }
+
+  .loading-progress {
+    margin-top: 27px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-ring-one,
+  .loading-ring-two,
+  .loading-core,
+  .loading-visual::before,
+  .loading-progress-bar {
+    animation: none;
+  }
+
+  .loading-progress-bar {
+    width: 55%;
+
+    transform: none;
+  }
+}
