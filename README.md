@@ -18,8 +18,7 @@ The interface is designed around three primary stages:
 
 The application focuses on clean data handling, custom validation, accessibility, input sanitization, responsive UI, and reliable user feedback.
 
----
-
+--
 ## Features
 
 * Multi-step React form
